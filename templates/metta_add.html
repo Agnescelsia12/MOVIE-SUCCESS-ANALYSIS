@@ -1,0 +1,100 @@
+{% include "header_admin1.html" %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+   
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box">
+                    <div class="page-title-right">
+                        <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
+                            
+                            <li class="breadcrumb-item active">.</li>
+                        </ol>
+                    </div>
+                    <h4 class="page-title">Add Meta Data</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            
+
+                            <div class="col-sm-7">
+                                {% for message in messages%}
+                                <div class="alert alert-success" role="alert">
+                                    {{message}}
+                                    {{break}}
+                                  </div>
+                                {% endfor %}   
+                                
+                            
+                            <form action="" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                               
+                                <div class="col-sm-4 pt-2">Flim Name</div>
+                                <div class="col-sm-8 pt-2">
+                                    <input class="form-control" type="text" name="fname" required>
+                                </div>
+                                <div class="col-sm-4 pt-2">Actor Name</div>
+                                <div class="col-sm-8 pt-2">
+                                    <input class="form-control" type="text" name="aname" required>
+                                </div>
+                                <div class="col-sm-4 pt-2">Actress Name</div>
+                                <div class="col-sm-8 pt-2">
+                                    <input class="form-control" type="text" name="aaname" required>
+                                </div>
+                                <div class="col-sm-4 pt-2">Investment Amount</div>
+                                <div class="col-sm-8 pt-2">
+                                    <input class="form-control" type="text" name="amt" required>
+                                </div>
+                                <input type="hidden" name="camt" value="0">
+                                <input type="hidden" name="happy" value="0">
+                                <input type="hidden" name="sad" value="0">
+                                <input type="hidden" name="tot" value="0">
+                                
+                                <div class="form-group pt-3">
+            
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div> 
+                              
+                            
+                
+                        </form>
+                    </div> <!-- end col -->
+                        <div class="col-sm-5">
+                            <img class="img-fluid " src="/static/images/1234.jpg" alt="">
+                      </div>
+                        </div> <!-- end row -->
+                    </div> <!-- end card body-->
+                </div> <!-- end card -->
+
+                <!-- Add New Event MODAL -->
+                
+                <!-- end modal-->
+            </div>
+            <!-- end col-12 -->
+        </div> <!-- end row -->
+
+    </div> <!-- container -->  
+                
+{% include "footer1.html" %} 

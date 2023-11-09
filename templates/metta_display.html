@@ -1,0 +1,95 @@
+{% include "header_admin1.html" %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+   
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box">
+                    <div class="page-title-right">
+                        <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
+                            
+                            <li class="breadcrumb-item active">.</li>
+                        </ol>
+                    </div>
+                    <h4 class="page-title">Display Metta</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            
+
+                            <div class="col-sm-12">
+                                {% for message in messages%}
+                                <div class="alert alert-success" role="alert">
+                                    {{message}}
+                                    {{break}}
+                                  </div>
+                                {% endfor %}   
+                                
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Flim Name</th>
+                                            <th>Actor Name</th>
+                                            <th>Actress Name</th>
+                                            <th>Investment Amount</th>
+                                        </tr>
+                                    </thead>
+                            <tbody>
+                                {% for ob in form%}
+                                <tr>
+                                    <td>{{ob.id}}</td>
+                                    <td>{{ob.fname}}</td>
+                                    
+                                    <td>{{ob.aname}}</td>
+                                    <td>{{ob.aaname}}</td>
+                                    <td>{{ob.amt}}</td>
+                                    <td> <a href="/loadvideo/{{ob.id}}" style="color:green;font-size: 20px; font-weight:bold;"><i class="fa-solid fa-circle-play"></i></a> </td>
+                                    <td> <a href="/meta_edit/{{ob.id}}" style="color:green;font-size: 20px; font-weight:bold;"><i class="fas fa-edit"></i></a> </td>
+                                    <td> <a href="/meta_delete/{{ob.id}}" style="color:rgb(232, 3, 3);font-size: 20px; font-weight:bold;"><i class="fa-solid fa-trash-can"></i></a> </td>
+                                    
+                                  
+                                    
+                                    
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div> <!-- end col -->
+                        
+                        </div> <!-- end row -->
+                    </div> <!-- end card body-->
+                </div> <!-- end card -->
+
+                <!-- Add New Event MODAL -->
+                
+                <!-- end modal-->
+            </div>
+            <!-- end col-12 -->
+        </div> <!-- end row -->
+
+    </div> <!-- container -->  
+                
+{% include "footer1.html" %} 

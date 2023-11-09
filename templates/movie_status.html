@@ -1,0 +1,88 @@
+{% include "header_admin1.html" %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+   
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box">
+                    <div class="page-title-right">
+                        <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
+                            
+                            <li class="breadcrumb-item active">.</li>
+                        </ol>
+                    </div>
+                    <h4 class="page-title">Movie Review</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            
+
+                            <div class="col-sm-12">
+                                Movie Name : <b>{{fname}}</b><br>
+                                Status : <b>{{st}}</b>
+                             
+                    </div> <!-- end col -->
+                    <div class="col-sm-6">
+                        <div class="card chart-container">
+                            <canvas id="chart"></canvas>                            
+                          </div>
+                    </div>
+                        
+                        </div> <!-- end row -->
+                    </div> <!-- end card body-->
+                </div> <!-- end card -->
+
+                <!-- Add New Event MODAL -->
+                
+                <!-- end modal-->
+            </div>
+            <!-- end col-12 -->
+        </div> <!-- end row -->
+
+    </div> <!-- container -->  
+                
+{% include "footer1.html" %} 
+
+<script>
+    //doughnut
+    const ctx = document.getElementById("chart").getContext('2d');
+    const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Investment Amount','Collection Amount','Happy','Sad','Total Viewers'],
+        datasets: [{
+          label: 'Review',
+          data: ['{{amt}}','{{camt}}','{{happy}}','{{sad}}','{{tot}}'],
+          backgroundColor: ["#0074D9", "#FF4136", "#2ECC40",
+          "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00",
+          "#001f3f", "#39CCCC", "#01FF70", "#85144b",
+          "#F012BE", "#3D9970", "#111111", "#AAAAAA","#D42626","#F7B2B2","#B2B6F7","#80F0CD"
+          ,"#178362","#F5B121","#B48A31","#5F31B4","#156CD0","#F0169D","#8D1660","#8D1660","#05B490"
+          ,"#CC84B3","#CB5BA4","#CB2892","#CF0646","#D03F6D","#CB839A","#E20D03","#E9625B","#E59693"
+          ,"#037379","#12797F","#C2F6F9","#81CDD1","#3ED4DC","#458083","#365A5C","#C3940E","#D1B76D","#19C7DA","#89D6DE","#27BC67","#448862","#6E11A2","#8E43B8","#B36ADC"]
+        }]
+      },
+    });
+</script>
